@@ -41,7 +41,7 @@ protected:
     Vector2 position, velocity; //coordinate system: x horizontal y vertical, positive is up & right
     FGFighterState state = FGFighterState::idle; //this is useful as a separate concept from currentAction, so we can do things like handle air drift the same regardless of if attacking or not.
     int cFrame; //current frame; how far along we are in a given action.
-    int hitstunFrames; //if > 0, we skip updating that frame for visual/gamefeel reasons
+    int hitstopFrames; //if > 0, we skip updating that frame for visual/gamefeel reasons
     bool hit; //generally: whether the attack we used connected. Set to true when it's possible to cancel into an action
     bool facingLeft;
 
