@@ -142,7 +142,18 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="FGAction.cpp" />
+    <ClCompile Include="FGFighter.cpp" />
+    <ClCompile Include="FGRenderer.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FGAction.h" />
+    <ClInclude Include="FGCollision.h" />
+    <ClInclude Include="FGFighter.h" />
+    <ClInclude Include="FGRenderer.h" />
+    <ClInclude Include="GameManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
