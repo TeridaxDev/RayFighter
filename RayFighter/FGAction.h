@@ -5,6 +5,8 @@
 
 #include <vector>
 
+class FGFighter; //Solves a circular #include reference
+
 class FGAction
 {
 public:
@@ -32,7 +34,7 @@ public:
 
     FGAction(int duration, bool looping, int loopFrame = 0);
     
-    virtual void FGAUpdate();
+    virtual void FGAUpdate(FGFighter* fighter);
     virtual void FGADraw(FGRenderer& renderer);
     virtual void FGADrawHitboxes(FGRenderer& renderer);
 
