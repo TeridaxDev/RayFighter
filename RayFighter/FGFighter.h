@@ -25,8 +25,9 @@ class FGFighter
 protected:
 
     //consts
-    const float groundLocationY = -17.62f; //TODO don't fucking do this
-    const float wallLocationX = 11; //mirrored
+    //except for some reason declaring floats as consts destroys the compiler
+    static const float groundLocationY; //TODO don't fucking do this
+    static const float wallLocationX; //mirrored
 
     //Serialized Data
     std::unordered_map<std::string, FGAction> actions;
@@ -92,4 +93,3 @@ public:
     virtual void FGDrawHitboxes() { CurrentAction()->FGADrawHitboxes(renderer); }
 
 };
-
