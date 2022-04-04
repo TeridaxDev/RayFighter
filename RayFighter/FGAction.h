@@ -34,7 +34,7 @@ public:
 
     FGAction(int duration, bool looping, int loopFrame = 0);
     
-    virtual void FGAUpdate(FGFighter* fighter);
+    virtual void FGAUpdate(FGFighter& fighter);
     virtual void FGADraw(FGRenderer& renderer);
     virtual void FGADrawHitboxes(FGRenderer& renderer);
 
