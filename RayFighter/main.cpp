@@ -3,12 +3,15 @@
 #include <cstring>
 #include <string>
 
+#include "GameManager.h"
+
 int main(void)
 {
     // Initialization
     //--------------------------------------------------------------------------------------
     const int screenWidth = 1280;
     const int screenHeight = 720;
+    GameManager manager = GameManager();
 
     InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 
@@ -21,7 +24,7 @@ int main(void)
         // Update
         //----------------------------------------------------------------------------------
         
-
+        manager.Update();
 
         //----------------------------------------------------------------------------------
 
@@ -30,6 +33,8 @@ int main(void)
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
+
+        manager.Draw();
 
         DrawText(std::to_string(GetFPS()).c_str(), 10, 10, 20, LIGHTGRAY);
 
