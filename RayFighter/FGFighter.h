@@ -25,8 +25,8 @@ class FGFighter
 protected:
 
     //consts
-    //const float groundLocationY = -17.62f; //TODO don't fucking do this
-    //const float wallLocationX = 11; //mirrored
+    const float groundLocationY = -17.62f; //TODO don't fucking do this
+    const float wallLocationX = 11; //mirrored
 
     //Serialized Data
     std::unordered_map<std::string, FGAction> actions;

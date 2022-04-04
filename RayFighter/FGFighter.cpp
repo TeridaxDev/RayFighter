@@ -4,7 +4,7 @@
 
 FGFighter::FGFighter()
 {
-	position = Vector2{ 0, 11 };
+	position = Vector2{ 0, groundLocationY };
 	velocity = Vector2{ 0, 0 };
 
     //Saves some time in testing.
