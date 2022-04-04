@@ -1,11 +1,12 @@
 #pragma once
 
-#include <map>
+#include <unordered_map>
+#include <string>
 
 #include "FGAction.h"
 #include "FGRenderer.h"
 
-enum FGFighterState {
+enum class FGFighterState {
     intro, //intro animation??? skipping for now
     idle,
     run,
@@ -24,11 +25,11 @@ class FGFighter
 protected:
 
     //consts
-    const float groundLocationY = -17.62f; //TODO don't fucking do this
-    const float wallLocationX = 11; //mirrored
+    //const float groundLocationY = -17.62f; //TODO don't fucking do this
+    //const float wallLocationX = 11; //mirrored
 
     //Serialized Data
-    std::map<char*, FGAction> actions;
+    std::unordered_map<std::string, FGAction> actions;
     float maxGroundSpeed;
     float maxAirSpeed; //horizontal
     float groundAcceleration;
@@ -61,7 +62,7 @@ protected:
     bool oldJump;
 
 private:
-    FGAction _currentAction;
+    FGAction* _currentAction;
     bool _hitstop;
 
     //Hitstop buffer
@@ -73,8 +74,8 @@ private:
 public:
 
     //Passthroughs
-    void CurrentAction(FGAction action) { _currentAction = action; _currentAction.SetActive(); }
-    FGAction* CurrentAction() { return &_currentAction; }
+    void CurrentAction(FGAction* action) { _currentAction = action; _currentAction->SetActive(); }
+    FGAction* CurrentAction() { return _currentAction; }
 
     //This is for buffering things out of hitstop. I know, it's gross.
     //    public bool Hitstop
@@ -87,8 +88,8 @@ public:
     FGFighter();
 
     virtual void FGUpdate();
-    virtual void FGDraw() { CurrentAction()->FGADraw(renderer); };
-    virtual void FGDrawHitboxes() { CurrentAction()->FGADrawHitboxes(renderer); };
+    virtual void FGDraw() { CurrentAction()->FGADraw(renderer); }
+    virtual void FGDrawHitboxes() { CurrentAction()->FGADrawHitboxes(renderer); }
 
 };
 
