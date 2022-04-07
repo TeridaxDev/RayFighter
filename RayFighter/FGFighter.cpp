@@ -19,6 +19,7 @@ FGFighter::FGFighter()
     actions.emplace("run", FGAction::NewDefaultAction());
     actions.emplace("crouch", FGAction::NewDefaultAction());
     actions.emplace("air", FGAction::NewDefaultAction());
+    actions.emplace("hurt", FGAction::NewDefaultAction());
 
     CurrentAction(&actions.find("idle")->second);
     state = FGFighterState::idle;

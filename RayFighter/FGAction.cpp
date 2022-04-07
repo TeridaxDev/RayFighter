@@ -25,6 +25,7 @@ void FGAction::FGAUpdate(FGFighter& fighter)
     if (hurtboxes[frame].size() != 0) lastHurt = hurtboxes[frame].data();
     if (hitboxes.size() != 0)
         if (hitboxes[frame].size() != 0) lastHit = hitboxes[frame].data();         //To signal the end of a hitbox, simply have an empty array at the given frame.
+                                                                                    //At least, that's how it works in the C# original. We can't have NULL values instead of vectors in C++, so instead we use a "null" hitbox, a hitbox with the "empty" flag enabled.
     //if (sprites != null)
     //    if (sprites[frame] != null) lastSprite = sprites[frame];
 }
@@ -50,7 +51,8 @@ FGAction FGAction::NewDefaultAction()
 	FGAction val = FGAction(1,false);
 
     val.hurtboxes[0].resize(1);
-    val.hurtboxes[0][0] = FGHurtbox{ Rectangle{-0.4f, 2.45f, 1.0f, 2.45f} };
+    //val.hurtboxes[0][0] = FGHurtbox{ Rectangle{-0.4f, 2.45f, 1.0f, 2.45f} };
+    val.hurtboxes[0][0] = FGHurtbox{ Rectangle{-40, 245, 100, 245} };
 
     return val;
 }

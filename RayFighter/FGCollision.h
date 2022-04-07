@@ -6,6 +6,7 @@ struct FGHitbox
 {
 	Rectangle rect;
 	Vector2 velocity;
+	bool null;
 };
 
 struct FGHurtbox
