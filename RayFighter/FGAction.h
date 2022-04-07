@@ -1,7 +1,6 @@
 #pragma once
 
 #include "FGCollision.h"
-#include "FGRenderer.h"
 
 #include <vector>
 
@@ -21,13 +20,13 @@ public:
 
     int frame;
     bool ended = false;
-    const FGHurtbox* CurrentHurt() const { return lastHurt; }
-    const FGHitbox* CurrentHit() const { return lastHit; }
+    const std::vector<FGHurtbox>* CurrentHurt() const { return lastHurt; }
+    const std::vector<FGHitbox>* CurrentHit() const { return lastHit; }
     //const Sprite* CurrentSprite() const { return lastSprite; }
 
 private:
-    FGHurtbox* lastHurt;           //These two variables are references to that "most recent frame" with data, to avoid looping through the array every frame.
-    FGHitbox* lastHit;
+    std::vector<FGHurtbox>* lastHurt;           //These two variables are references to that "most recent frame" with data, to avoid looping through the array every frame.
+    std::vector<FGHitbox>* lastHit;
     //Sprite* lastSprite;
 
 public:
@@ -35,8 +34,8 @@ public:
     FGAction(int duration, bool looping, int loopFrame = 0);
     
     virtual void FGAUpdate(FGFighter& fighter);
-    virtual void FGADraw(FGRenderer& renderer);
-    virtual void FGADrawHitboxes(FGRenderer& renderer);
+    //virtual void FGADraw(FGRenderer& renderer);
+    //virtual void FGADrawHitboxes(FGRenderer& renderer);
 
     void SetActive();
 

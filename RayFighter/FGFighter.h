@@ -4,7 +4,6 @@
 #include <string>
 
 #include "FGAction.h"
-#include "FGRenderer.h"
 
 enum class FGFighterState {
     intro, //intro animation??? skipping for now
@@ -24,11 +23,6 @@ class FGFighter
 {
 protected:
 
-    //consts
-    //except for some reason declaring floats as consts destroys the compiler
-    static const float groundLocationY; //TODO don't fucking do this
-    static const float wallLocationX; //mirrored
-
     //Serialized Data
     std::unordered_map<std::string, FGAction> actions;
     float maxGroundSpeed;
@@ -46,9 +40,6 @@ protected:
     int hitstopFrames; //if > 0, we skip updating that frame for visual/gamefeel reasons
     bool hit; //generally: whether the attack we used connected. Set to true when it's possible to cancel into an action
     bool facingLeft;
-
-    //Rendering
-    FGRenderer renderer;
 
     //Buttons and input
     Vector2 joystick; //Digital, values should be -1 0 or 1.
@@ -74,9 +65,20 @@ private:
 
 public:
 
+    //consts
+    //except for some reason declaring floats as consts destroys the compiler
+    static const float groundLocationY; //In a plat fighter we would use collision instead
+    static const float wallLocationX; //mirrored
+
     //Passthroughs
     void CurrentAction(FGAction* action) { _currentAction = action; _currentAction->SetActive(); }
     FGAction* CurrentAction() { return _currentAction; }
+    
+    void SetPositionX(float x) { position.x = x; }
+    Vector2 GetPosition() { return position; }
+
+    void TurnAround(bool faceLeft) { facingLeft = faceLeft; };
+    bool GetFacingLeft() { return facingLeft; }
 
     //This is for buffering things out of hitstop. I know, it's gross.
     //    public bool Hitstop
@@ -89,7 +91,7 @@ public:
     FGFighter();
 
     virtual void FGUpdate();
-    virtual void FGDraw() { CurrentAction()->FGADraw(renderer); }
-    virtual void FGDrawHitboxes() { CurrentAction()->FGADrawHitboxes(renderer); }
+    /*virtual void FGDraw() { CurrentAction()->FGADraw(renderer); }
+    virtual void FGDrawHitboxes() { CurrentAction()->FGADrawHitboxes(renderer); }*/
 
 };

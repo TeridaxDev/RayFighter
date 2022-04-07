@@ -5,8 +5,8 @@
 #define FAct(s) &actions.find("s")->second
 
 //Const floats need to be initialized this way for some reason
-const float FGFighter::groundLocationY = -17.62f;
-const float FGFighter::wallLocationX = 11;
+const float FGFighter::groundLocationY = 50;
+const float FGFighter::wallLocationX = 500;
 
 
 FGFighter::FGFighter()

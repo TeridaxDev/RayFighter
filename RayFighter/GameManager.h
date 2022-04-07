@@ -1,11 +1,14 @@
 #pragma once
 
-#include "FGFighter.h"
+#include "FGRenderer.h"
 
 class GameManager
 {
 private:
-	FGFighter player1, player2;
+	FGFighter* player1;
+	FGFighter* player2;
+	FGRenderer* render1;
+	FGRenderer* render2;
 
 public:
 
