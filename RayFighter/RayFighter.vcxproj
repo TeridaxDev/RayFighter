@@ -146,6 +146,7 @@
     <ClCompile Include="FGFighter.cpp" />
     <ClCompile Include="FGRenderer.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +155,7 @@
     <ClInclude Include="FGFighter.h" />
     <ClInclude Include="FGRenderer.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="InputManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

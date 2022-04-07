@@ -80,6 +80,9 @@ public:
     void TurnAround(bool faceLeft) { facingLeft = faceLeft; };
     bool GetFacingLeft() { return facingLeft; }
 
+    void SetJoystick(Vector2 joy);
+    void SetButtons(unsigned char byte);
+
     //This is for buffering things out of hitstop. I know, it's gross.
     //    public bool Hitstop
     //{

@@ -10,6 +10,9 @@ private:
 	FGRenderer* render1;
 	FGRenderer* render2;
 
+	int controller1 = -1;
+	int controller2 = 0;
+
 public:
 
 	GameManager();

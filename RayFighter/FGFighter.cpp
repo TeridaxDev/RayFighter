@@ -9,6 +9,40 @@ const float FGFighter::groundLocationY = 50;
 const float FGFighter::wallLocationX = 500;
 
 
+void FGFighter::SetJoystick(Vector2 joy)
+{
+    if (joy.x == 0) joystick.x = 0;
+    else if (joy.x > 0) joystick.x = 1;
+    else joystick.x = -1;
+
+    if (joy.y == 0) joystick.y = 0;
+    else if (joy.y > 0) joystick.y = 1;
+    else joystick.y = -1;
+}
+
+void FGFighter::SetButtons(unsigned char byte)
+{
+    /*
+    Bindings:
+    A - jump 0001
+    X - poke 0010
+    B - spike 0100
+    Y - launch 1000
+    */
+    //Y5 B6 A7 X8 xbox format
+
+    jump = ((byte & 0b0001) == 0b0001);
+    poke = ((byte & 0b0010) == 0b0010);
+    spike = ((byte & 0b0100) == 0b0100);
+    launch = ((byte & 0b1000) == 0b1000);
+
+    if (jump && _hitstop) bffJump = true;
+    if (poke && _hitstop) bffPoke = true;
+    if (spike && _hitstop) bffSpike = true;
+    if (launch && _hitstop) bffLaunch = true;
+
+}
+
 FGFighter::FGFighter()
 {
 	position = Vector2{ 0, groundLocationY };
