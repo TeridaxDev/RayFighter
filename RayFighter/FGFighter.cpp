@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-#define FAct(s) &actions.find("s")->second
+#define FAct(s) &actions.find(s)->second
 
 //Const floats need to be initialized this way for some reason
 const float FGFighter::groundLocationY = 50;
@@ -21,7 +21,7 @@ FGFighter::FGFighter()
     actions.emplace("air", FGAction::NewDefaultAction());
     actions.emplace("hurt", FGAction::NewDefaultAction());
 
-    CurrentAction(&actions.find("idle")->second);
+    CurrentAction(FAct("idle"));
     state = FGFighterState::idle;
 }
 
@@ -32,13 +32,13 @@ void FGFighter::FGUpdate()
         if (state == FGFighterState::attack)
         {
             state = FGFighterState::idle;
-            CurrentAction(FAct(idle));
+            CurrentAction(FAct("idle"));
             hit = false;
         }
         else if (state == FGFighterState::airAttack)
         {
             state = FGFighterState::air;
-            CurrentAction(FAct(air));
+            CurrentAction(FAct("air"));
             hit = false;
         }
     }
@@ -54,46 +54,46 @@ void FGFighter::FGUpdate()
         if (jump && !oldJump)
         {
             state = FGFighterState::air;
-            CurrentAction(FAct(air));
+            CurrentAction(FAct("air"));
             velocity.x = maxAirSpeed * joystick.x;
             velocity.y = jumpVelocity;
         }
         else if ((poke && !oldPoke) || bffPoke)
         {
             state = FGFighterState::attack;
-            CurrentAction(FAct(poke));
+            CurrentAction(FAct("poke"));
         }
         else if ((spike && !oldSpike) || bffSpike)
         {
             state = FGFighterState::attack;
-            CurrentAction(FAct(spike));
+            CurrentAction(FAct("spike"));
         }
         else if ((launch && !oldLaunch) || bffLaunch)
         {
             state = FGFighterState::attack;
-            CurrentAction(FAct(launch));
+            CurrentAction(FAct("launch"));
         }
         else if (joystick.x == 1 && joystick.y != -1)
         {
             state = FGFighterState::run;
-            CurrentAction(FAct(run));
+            CurrentAction(FAct("run"));
             facingLeft = false;
         }
         else if (joystick.x == -1 && joystick.y != -1)
         {
             state = FGFighterState::run;
-            CurrentAction(FAct(run));
+            CurrentAction(FAct("run"));
             facingLeft = true;
         }
         else if (joystick.y == -1 && state != FGFighterState::crouch)
         {
             state = FGFighterState::crouch;
-            CurrentAction(FAct(crouch));
+            CurrentAction(FAct("crouch"));
         }
         else if (joystick.y != -1 && state == FGFighterState::crouch)
         {
             state = FGFighterState::idle;
-            CurrentAction(FAct(idle));
+            CurrentAction(FAct("idle"));
         }
 
         break;
@@ -104,34 +104,34 @@ void FGFighter::FGUpdate()
         if (jump && !oldJump)
         {
             state = FGFighterState::air;
-            CurrentAction(FAct(air));
+            CurrentAction(FAct("air"));
             velocity.x = maxAirSpeed * joystick.x;
             velocity.y = jumpVelocity;
         }
         else if ((poke && !oldPoke) || bffPoke)
         {
             state = FGFighterState::attack;
-            CurrentAction(FAct(poke));
+            CurrentAction(FAct("poke"));
         }
         else if ((spike && !oldSpike) || bffSpike)
         {
             state = FGFighterState::attack;
-            CurrentAction(FAct(spike));
+            CurrentAction(FAct("spike"));
         }
         else if ((launch && !oldLaunch) || bffLaunch)
         {
             state = FGFighterState::attack;
-            CurrentAction(FAct(launch));
+            CurrentAction(FAct("launch"));
         }
         else if (joystick.y == -1 && oldJoystick.y != -1)
         {
             state = FGFighterState::crouch;
-            CurrentAction(FAct(crouch));
+            CurrentAction(FAct("crouch"));
         }
         else if ((!facingLeft && joystick.x != 1) || (facingLeft && joystick.x != -1))
         {
             state = FGFighterState::idle;
-            CurrentAction(FAct(idle));
+            CurrentAction(FAct("idle"));
         }
         break;
 
@@ -148,25 +148,25 @@ void FGFighter::FGUpdate()
         {
             state = FGFighterState::idle;
             position.y = groundLocationY;
-            CurrentAction(FAct(idle));
+            CurrentAction(FAct("idle"));
             hit = false;
         }
         else if (bffPoke || (poke && !oldPoke && (state == FGFighterState::air || hit)))
         {
             state = FGFighterState::airAttack;
-            CurrentAction(FAct(airPoke));
+            CurrentAction(FAct("airPoke"));
             hit = false;
         }
         else if (bffSpike || (spike && !oldSpike && (state == FGFighterState::air || hit)))
         {
             state = FGFighterState::airAttack;
-            CurrentAction(FAct(airSpike));
+            CurrentAction(FAct("airSpike"));
             hit = false;
         }
         else if (bffLaunch || (launch && !oldLaunch && (state == FGFighterState::air || hit)))
         {
             state = FGFighterState::airAttack;
-            CurrentAction(FAct(airLaunch));
+            CurrentAction(FAct("airLaunch"));
             hit = false;
         }
 
@@ -178,7 +178,7 @@ void FGFighter::FGUpdate()
             if ((jump && !oldJump) || bffJump)
             {
                 state = FGFighterState::air;
-                CurrentAction(FAct(air));
+                CurrentAction(FAct("air"));
                 velocity.x = maxAirSpeed * joystick.x;
                 velocity.y = jumpVelocity;
                 hit = false;
@@ -186,19 +186,19 @@ void FGFighter::FGUpdate()
             else if ((poke && !oldPoke) || bffPoke)
             {
                 state = FGFighterState::attack;
-                CurrentAction(FAct(poke));
+                CurrentAction(FAct("poke"));
                 hit = false;
             }
             else if ((spike && !oldSpike) || bffSpike)
             {
                 state = FGFighterState::attack;
-                CurrentAction(FAct(spike));
+                CurrentAction(FAct("spike"));
                 hit = false;
             }
             else if ((launch && !oldLaunch) || bffLaunch)
             {
                 state = FGFighterState::attack;
-                CurrentAction(FAct(launch));
+                CurrentAction(FAct("launch"));
                 hit = false;
             }
         }
