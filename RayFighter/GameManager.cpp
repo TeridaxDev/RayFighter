@@ -23,11 +23,6 @@ GameManager::~GameManager()
 
 void GameManager::Update()
 {
-	//Vector2 val = InputManager::GetJoystick(controller1);
-	if (IsGamepadButtonDown(0, 5))
-	{
-		GetGamepadName(0);
-	}
 	player1->SetJoystick(InputManager::GetJoystick(controller1));
 	player1->SetButtons(InputManager::GetButtons(controller1));
 	player1->FGUpdate();
