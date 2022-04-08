@@ -47,18 +47,17 @@ public:
         actions.emplace("airPoke", new FGAction(*FAct("poke")));
 
         actions.emplace("launch", new ShotoLaunch());
-        actions.emplace("airLaunch", new FGAction(*FAct("launch")));
+        actions.emplace("airLaunch", new ShotoLaunch());
 
-        /*
+        actions.emplace("spike", new ShotoSpike());
 
-        FAct("airSpike") = new FGAction(18, false);
-        FAct("airSpike").hurtboxes[0] = new FGHurtbox[1];
-        FAct("airSpike").hurtboxes[0][0] = new FGHurtbox(new UnityEngine.Rect(-0.4f, 2.45f, 1, 2.45f));
-        FAct("airSpike").hitboxes[3] = new FGHitbox[1];
-        FAct("airSpike").hitboxes[3][0] = new FGHitbox(new UnityEngine.Rect(0, 0.8f, 1.5f, 1.8f), new UnityEngine.Vector2(50, -50));
-        FAct("airSpike").hitboxes[6] = new FGHitbox[0];
 
-        FAct("airLaunch") = FAct("launch");
-        */
+        actions.emplace("airSpike", new FGAction(18, false));
+        FAct("airSpike")->hurtboxes[0].resize(1);
+        FAct("airSpike")->hurtboxes[0][0] = FGHurtbox{ Rectangle{-30, 183, 75, 183} };
+        FAct("airSpike")->hitboxes[3].resize(1);
+        FAct("airSpike")->hitboxes[3][0] = FGHitbox{ Rectangle{ 0, 53, 100, 120}, Vector2{50, -50}, false };
+        FAct("airSpike")->hitboxes[6].resize(1);
+        FAct("airSpike")->hitboxes[6][0] = FGHitbox{ Rectangle{}, Vector2{}, true };
 	}
 };

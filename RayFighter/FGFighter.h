@@ -77,9 +77,11 @@ public:
     FGAction* CurrentAction() { return _currentAction; }
     
     Vector2 GetPosition() { return position; }
+    Vector2 GetVelocity() { return velocity; }
     bool GetFacingLeft() { return facingLeft; }
 
     void SetVelocity(Vector2 vel) { velocity = vel; }
+    void SetPosition(Vector2 pos) { position = pos; }
     void SetPositionX(float x) { position.x = x; }
     void TurnAround(bool faceLeft) { facingLeft = faceLeft; };
     void SetState(FGFighterState state) { FGFighter::state = state; }

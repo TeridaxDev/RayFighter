@@ -13,7 +13,7 @@ public:
         hurtboxes[2].resize(1);
         hurtboxes[2][0] = FGHurtbox{Rectangle{-30, 112, 75, 112}};
         hurtboxes[3].resize(1);
-        hurtboxes[3][0] = FGHurtbox{Rectangle{-30, 118, 75, 118}};
+        hurtboxes[3][0] = FGHurtbox{Rectangle{-30, 120, 75, 120}};
         hurtboxes[4].resize(1);
         hurtboxes[4][0] = FGHurtbox{Rectangle{-30, 132, 75, 132}};
 
