@@ -238,7 +238,7 @@ void FGFighter::FGUpdate()
         break;
     }
 
-    //CurrentAction()->FGAUpdate(*this);
+    CurrentAction()->FGAUpdate(*this);
 
     if (position.x > wallLocationX) position.x = wallLocationX;
     if (position.x < -wallLocationX) position.x = -wallLocationX;

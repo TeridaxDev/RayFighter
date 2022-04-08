@@ -40,7 +40,7 @@ void FGAction::SetActive()
 
 FGAction FGAction::NewDefaultAction()
 {
-	FGAction val = FGAction(1,false);
+	FGAction val = FGAction(1,true);
 
     val.hurtboxes[0].resize(1);
     //val.hurtboxes[0][0] = FGHurtbox{ Rectangle{-0.4f, 2.45f, 1.0f, 2.45f} };
