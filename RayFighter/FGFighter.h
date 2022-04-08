@@ -5,7 +5,7 @@
 
 #include "FGAction.h"
 
-#define FAct(s) &actions.find(s)->second
+#define FAct(s) actions.find(s)->second
 
 enum class FGFighterState {
     intro, //intro animation??? skipping for now
@@ -76,12 +76,15 @@ public:
     void CurrentAction(FGAction* action) { _currentAction = action; _currentAction->SetActive(); }
     FGAction* CurrentAction() { return _currentAction; }
     
-    void SetPositionX(float x) { position.x = x; }
     Vector2 GetPosition() { return position; }
-
-    void TurnAround(bool faceLeft) { facingLeft = faceLeft; };
     bool GetFacingLeft() { return facingLeft; }
 
+    void SetVelocity(Vector2 vel) { velocity = vel; }
+    void SetPositionX(float x) { position.x = x; }
+    void TurnAround(bool faceLeft) { facingLeft = faceLeft; };
+    void SetState(FGFighterState state) { FGFighter::state = state; }
+
+    //Input
     void SetJoystick(Vector2 joy);
     void SetButtons(unsigned char byte);
 

@@ -9,8 +9,8 @@ int main(void)
 {
     // Initialization
     //--------------------------------------------------------------------------------------
-    const int screenWidth = 1280;
-    const int screenHeight = 720;
+    const int screenWidth = 1920;
+    const int screenHeight = 1080;
     GameManager manager = GameManager();
 
     InitWindow(screenWidth, screenHeight, "raylib fighter");

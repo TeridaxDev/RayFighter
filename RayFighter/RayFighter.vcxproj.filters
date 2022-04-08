@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Fighters">
+      <UniqueIdentifier>{5d688873-981a-4ef3-b225-b17017242b6b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -55,6 +58,18 @@
     </ClInclude>
     <ClInclude Include="InputManager.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Fighters\Shoto.h">
+      <Filter>Fighters</Filter>
+    </ClInclude>
+    <ClInclude Include="Fighters.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Fighters\ShotoLaunch.h">
+      <Filter>Fighters</Filter>
+    </ClInclude>
+    <ClInclude Include="Fighters\ShotoSpike.h">
+      <Filter>Fighters</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

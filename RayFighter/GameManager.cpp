@@ -1,11 +1,13 @@
 #include "GameManager.h"
 #include "InputManager.h"
 
+#include "Fighters.h"
+
 GameManager::GameManager()
 {
-	player1 = new FGFighter();
+	player1 = new Shoto();
 	render1 = new FGRenderer(player1);
-	player2 = new FGFighter();
+	player2 = new Shoto();
 	render2 = new FGRenderer(player2);
 
 	player1->SetPositionX(-400);
@@ -33,7 +35,7 @@ void GameManager::Update()
 
 void GameManager::Draw()
 {
-	DrawLine(0, GetScreenHeight() - 50, GetScreenWidth(), GetScreenHeight() - 50, BLACK);
+	DrawLine(0, GetScreenHeight() - 80, GetScreenWidth(), GetScreenHeight() - 80, BLACK);
 
 	render1->Draw();
 	render1->DrawHitboxes();

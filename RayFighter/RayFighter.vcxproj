@@ -154,6 +154,10 @@
     <ClInclude Include="FGCollision.h" />
     <ClInclude Include="FGFighter.h" />
     <ClInclude Include="FGRenderer.h" />
+    <ClInclude Include="Fighters.h" />
+    <ClInclude Include="Fighters\Shoto.h" />
+    <ClInclude Include="Fighters\ShotoLaunch.h" />
+    <ClInclude Include="Fighters\ShotoSpike.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="InputManager.h" />
   </ItemGroup>
