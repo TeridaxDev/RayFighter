@@ -32,22 +32,22 @@ public:
         FAct("crouch")->hurtboxes[2][0] = FGHurtbox{ Rectangle{-30, 92, 75, 92} };
         FAct("crouch")->hurtboxes[3][0] = FGHurtbox{ Rectangle{-30, 78, 75, 78}};
 
-        actions.emplace("poke", FGAction(18, false));
-        FAct("poke").hurtboxes[0].resize(1);
-        FAct("poke").hurtboxes[0][0] = FGHurtbox{ Rectangle{-30, 183, 75, 183}};
-        FAct("poke").hurtboxes[1].resize(2);
-        FAct("poke").hurtboxes[1][0] = FGHurtbox{ Rectangle{-30, 183, 75, 183}};
-        FAct("poke").hurtboxes[1][1] = FGHurtbox{ Rectangle{35, 128, 46, 46} };
-        FAct("poke").hurtboxes[8] = FAct("poke").hurtboxes[0];
-        FAct("poke").hitboxes[3].resize(1);
-        FAct("poke").hitboxes[3][0] = FGHitbox{ Rectangle{0, 138, 86, 66}, Vector2{132, 264}, false };
-        FAct("poke").hitboxes[6].resize(1);
-        FAct("poke").hitboxes[6][0] = FGHitbox{ Rectangle{}, Vector2{}, true };
+        actions.emplace("poke", new FGAction(18, false));
+        FAct("poke")->hurtboxes[0].resize(1);
+        FAct("poke")->hurtboxes[0][0] = FGHurtbox{ Rectangle{-30, 183, 75, 183}};
+        FAct("poke")->hurtboxes[1].resize(2);
+        FAct("poke")->hurtboxes[1][0] = FGHurtbox{ Rectangle{-30, 183, 75, 183}};
+        FAct("poke")->hurtboxes[1][1] = FGHurtbox{ Rectangle{35, 128, 46, 46} };
+        FAct("poke")->hurtboxes[8] = FAct("poke")->hurtboxes[0];
+        FAct("poke")->hitboxes[3].resize(1);
+        FAct("poke")->hitboxes[3][0] = FGHitbox{ Rectangle{0, 138, 86, 66}, Vector2{132, 264}, false };
+        FAct("poke")->hitboxes[6].resize(1);
+        FAct("poke")->hitboxes[6][0] = FGHitbox{ Rectangle{}, Vector2{}, true };
 
-        actions.emplace("airPoke", FAct("poke"));
+        actions.emplace("airPoke", new FGAction(*FAct("poke")));
 
-        actions.emplace("launch", ShotoLaunch());
-        actions.emplace("airLaunch", FAct("launch"));
+        actions.emplace("launch", new ShotoLaunch());
+        actions.emplace("airLaunch", new FGAction(*FAct("launch")));
 
         /*
 

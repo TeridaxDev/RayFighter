@@ -21,6 +21,9 @@ GameManager::GameManager()
 GameManager::~GameManager()
 {
 	delete player1;
+	delete player2;
+	delete render1;
+	delete render2;
 }
 
 void GameManager::Update()

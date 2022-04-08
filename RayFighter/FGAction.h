@@ -39,7 +39,7 @@ public:
 
     void SetActive();
 
-    static FGAction NewDefaultAction();
+    static FGAction* NewDefaultAction();
 
 };
 

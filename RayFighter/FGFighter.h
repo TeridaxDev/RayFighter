@@ -26,7 +26,7 @@ class FGFighter
 protected:
 
     //Serialized Data
-    std::unordered_map<std::string, FGAction> actions;
+    std::unordered_map<std::string, FGAction*> actions;
     float maxGroundSpeed;
     float maxAirSpeed; //horizontal
     float groundAcceleration;
@@ -97,6 +97,7 @@ public:
 
 
     FGFighter();
+    ~FGFighter();
 
     virtual void FGUpdate();
     /*virtual void FGDraw() { CurrentAction()->FGADraw(renderer); }

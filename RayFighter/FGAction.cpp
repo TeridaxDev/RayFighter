@@ -38,13 +38,13 @@ void FGAction::SetActive()
 	lastHit = &hitboxes[0];
 }
 
-FGAction FGAction::NewDefaultAction()
+FGAction* FGAction::NewDefaultAction()
 {
-	FGAction val = FGAction(1,true);
+	FGAction* val = new FGAction(1,true);
 
-    val.hurtboxes[0].resize(1);
+    val->hurtboxes[0].resize(1);
     //val.hurtboxes[0][0] = FGHurtbox{ Rectangle{-0.4f, 2.45f, 1.0f, 2.45f} };
-    val.hurtboxes[0][0] = FGHurtbox{ Rectangle{-30, 183, 75, 183} };
+    val->hurtboxes[0][0] = FGHurtbox{ Rectangle{-30, 183, 75, 183} };
 
     return val;
 }
