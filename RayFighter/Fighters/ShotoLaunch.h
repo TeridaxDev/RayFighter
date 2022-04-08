@@ -33,7 +33,7 @@ public:
         if (frame == 4)
         {
             fighter.SetState(FGFighterState::airAttack);
-            fighter.SetVelocity(Vector2{ 0.05f * (fighter.GetFacingLeft() ? -1 : 1), 0.55f});
+            fighter.SetVelocity(Vector2{ 5.0f * (fighter.GetFacingLeft() ? -1 : 1), 36});
         }
     }
 
