@@ -5,6 +5,8 @@
 
 #include "FGAction.h"
 
+#define FAct(s) &actions.find(s)->second
+
 enum class FGFighterState {
     intro, //intro animation??? skipping for now
     idle,

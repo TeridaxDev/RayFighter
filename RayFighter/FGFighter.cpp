@@ -2,8 +2,6 @@
 
 #include <iostream>
 
-#define FAct(s) &actions.find(s)->second
-
 //Const floats need to be initialized this way for some reason
 const float FGFighter::groundLocationY = 50;
 const float FGFighter::wallLocationX = 500;
@@ -83,7 +81,8 @@ void FGFighter::FGUpdate()
     case FGFighterState::idle:
     case FGFighterState::crouch:
         position = Vector2{ position.x + velocity.x, groundLocationY };
-        velocity.x, velocity.y *= friction; //Can I do this??
+        velocity.x *= friction;
+        velocity.y = 0;
 
         if (jump && !oldJump)
         {
